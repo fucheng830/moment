@@ -1,13 +1,13 @@
 ### Moment: AI-Powered Knowledge Social Learning Platform Technical Documentation
 [中文文档](README_ZH.md)
 ---
-
+![Moment Logo](image/image_3.png)
 #### I. Overview
 
 **1.1 Project Background**
 
 With the rapid advancement of AI technology, the methods of knowledge production and dissemination have undergone profound changes. The traditional Professional Content Generator (PGC) model is gradually supplemented by AI-generated basic content, and users' acquisition and social behaviors of knowledge have also significantly evolved. To meet users' needs for personalized, instant feedback, and socialized learning, we introduce "Moment" – an AI-powered knowledge social learning platform.
-
+![Moment](image/image_1.png)
 **1.2 Product Positioning**
 
 "Moment" aims to break traditional learning models, constructing a user-centric, AI-assisted, and community-co-created knowledge ecosystem. Through card-style knowledge presentation, immersive learning experiences, personalized learning path recommendations, knowledge community building, and intelligent learning assistants, it provides users with efficient, convenient, and engaging learning experiences.
@@ -15,7 +15,7 @@ With the rapid advancement of AI technology, the methods of knowledge production
 ---
 
 #### II. Core Technical Architecture
-
+![Moment Technical](image/image_2.png)
 **2.1 System Architecture**
 
 The "Moment" platform adopts a microservices architecture, primarily divided into the following core modules:
