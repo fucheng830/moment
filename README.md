@@ -1,5 +1,5 @@
 ### Moment: AI-Powered Knowledge Social Learning Platform Technical Documentation
-
+[中文文档](README_ZH.md)
 ---
 
 #### I. Overview
