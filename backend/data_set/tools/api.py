@@ -7,8 +7,6 @@ import os
 
 client = OpenAI(
     # This is the default and can be omitted
-    api_key='sk-daawwylizkfiiqo2',
-    base_url='https://cloud.infini-ai.com/maas/qwen2.5-72b-instruct/nvidia/'
 )
 
 
