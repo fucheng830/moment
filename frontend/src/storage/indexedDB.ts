@@ -8,7 +8,7 @@ import { Category } from '@/types/category_model';
 
 type StoreWithDeletedAt = 'localCategorys' | 'localNotes';
 
-interface NoolingoTestDB extends DBSchema {
+interface MomentTestDB extends DBSchema {
     localCategorys: { key: string; value: Category; indexes: { "_deleted_at": number }; };
     localNotes: { key: string; value: Note; indexes: { "_deleted_at": number; "category_id": string }; };
 }
@@ -19,7 +19,7 @@ type StoreNames =  'localCategorys' | 'localNotes'
 
 
 class IndexedDatabase {
-    private db: IDBPDatabase<NoolingoTestDB> | null = null;
+    private db: IDBPDatabase<MomentTestDB> | null = null;
     private onDataChange: ((version: number) => void) | null = null;
     private dataVersion: number = 0;//最近一次修改本地数据的时间戳
 
@@ -45,7 +45,7 @@ class IndexedDatabase {
 
     async init() {
         if (this.db) return;
-        this.db = await openDB<NoolingoTestDB>('momentDB', 1, {
+        this.db = await openDB<MomentTestDB>('momentDB', 1, {
             upgrade(db) {
                 if (!db.objectStoreNames.contains('localCategorys')) {
                     const categoryStore = db.createObjectStore('localCategorys', { keyPath: 'id' });
@@ -78,7 +78,7 @@ class IndexedDatabase {
     }
 
     // 创建数据
-    async create<T extends StoreNames>(storeName: T, item: NoolingoTestDB[T]['value']): Promise<string> {
+    async create<T extends StoreNames>(storeName: T, item: MomentTestDB[T]['value']): Promise<string> {
         if (!this.db) await this.init();
         const itemWithMeta = this.updateMetadata(item);
         const id = await this.db!.add(storeName, itemWithMeta);
@@ -87,7 +87,7 @@ class IndexedDatabase {
     }
 
     // 批量创建
-    async createBulk<T extends StoreNames>(storeName: T, items: NoolingoTestDB[T]['value'][]): Promise<string[]> {
+    async createBulk<T extends StoreNames>(storeName: T, items: MomentTestDB[T]['value'][]): Promise<string[]> {
         if (!this.db) await this.init();
         const tx = this.db!.transaction(storeName, 'readwrite');
         const store = tx.objectStore(storeName);
@@ -99,7 +99,7 @@ class IndexedDatabase {
     }
 
     // 读取数据
-    async read<T extends StoreNames>(storeName: T, id: string): Promise<NoolingoTestDB[T]['value'] | undefined> {
+    async read<T extends StoreNames>(storeName: T, id: string): Promise<MomentTestDB[T]['value'] | undefined> {
         if (!this.db) await this.init();
         const item = await this.db!.get(storeName, id);
         if (item && '_deleted_at' in item && item._deleted_at) {
@@ -110,7 +110,7 @@ class IndexedDatabase {
 
 
     // 读取集合的所有数据
-    async readAll<T extends StoreNames>(storeName: T, withDeleted: boolean = false): Promise<NoolingoTestDB[T]['value'][]> {
+    async readAll<T extends StoreNames>(storeName: T, withDeleted: boolean = false): Promise<MomentTestDB[T]['value'][]> {
         if (!this.db) await this.init();
         const tx = this.db!.transaction(storeName, 'readonly');
         const store = tx.objectStore(storeName);
@@ -125,7 +125,7 @@ class IndexedDatabase {
     }
 
     // 读取已删除的数据
-    async readDeleted<T extends StoreWithDeletedAt>(storeName: T): Promise<NoolingoTestDB[T]['value'][]> {
+    async readDeleted<T extends StoreWithDeletedAt>(storeName: T): Promise<MomentTestDB[T]['value'][]> {
         if (!this.db) await this.init();
         const tx = this.db!.transaction(storeName, 'readonly');
         const store = tx.objectStore(storeName);
@@ -134,7 +134,7 @@ class IndexedDatabase {
     }
 
     // 更新数据
-    async update<T extends StoreNames>(storeName: T, id: string, updates: Partial<NoolingoTestDB[T]['value']>): Promise<void> {
+    async update<T extends StoreNames>(storeName: T, id: string, updates: Partial<MomentTestDB[T]['value']>): Promise<void> {
         if (!this.db) await this.init();
         const tx = this.db!.transaction(storeName, 'readwrite');
         const store = tx.objectStore(storeName);
@@ -148,7 +148,7 @@ class IndexedDatabase {
     }
 
     // 批量更新
-    async updateBulk<T extends StoreNames>(storeName: T, items: NoolingoTestDB[T]['value'][]): Promise<void> {
+    async updateBulk<T extends StoreNames>(storeName: T, items: MomentTestDB[T]['value'][]): Promise<void> {
         if (!this.db) await this.init();
         const tx = this.db!.transaction(storeName, 'readwrite');
         const store = tx.objectStore(storeName);
@@ -159,7 +159,7 @@ class IndexedDatabase {
     }
 
     // 写入数据（直接覆盖）
-    async put<T extends StoreNames>(storeName: T, item: NoolingoTestDB[T]['value']): Promise<void> {
+    async put<T extends StoreNames>(storeName: T, item: MomentTestDB[T]['value']): Promise<void> {
         if (!this.db) await this.init();
         const itemWithMeta = this.updateMetadata(item);
         await this.db!.put(storeName, itemWithMeta);
