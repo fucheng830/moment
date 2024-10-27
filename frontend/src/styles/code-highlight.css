@@ -1,0 +1,90 @@
+/* 关键字 */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-built_in,
+.hljs-name,
+.hljs-tag {
+@apply text-code-keyword;
+}
+
+/* 字符串 */
+.hljs-string,
+.hljs-title,
+.hljs-section,
+.hljs-attribute,
+.hljs-literal,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type,
+.hljs-addition {
+@apply text-code-string;
+}
+
+/* 数字 */
+.hljs-number,
+.hljs-deletion {
+@apply text-code-number;
+}
+
+/* 注释 */
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+@apply text-code-comment;
+}
+
+/* 类名，函数名 */
+.hljs-class,
+.hljs-function {
+@apply text-code-function;
+}
+
+/* 变量 */
+.hljs-variable,
+.hljs-regexp,
+.hljs-symbol {
+@apply text-code-variable;
+}
+
+/* 操作符 */
+.hljs-operator,
+.hljs-bullet {
+@apply text-code-operator;
+}
+
+/* 标点符号 */
+.hljs-punctuation {
+@apply text-code-operator;
+}
+
+/* 重点 */
+.hljs-emphasis {
+@apply italic;
+}
+
+/* 加粗 */
+.hljs-strong {
+@apply font-bold;
+}
+
+/* 链接 */
+.hljs-link {
+@apply underline text-code-function;
+}
+
+/* 文档标记（如 HTML 标签） */
+.hljs-doctag {
+@apply text-code-comment;
+}
+
+/* 属性名 */
+.hljs-attr {
+@apply text-code-variable;
+}
+
+/* 属性值 */
+.hljs-attribute {
+@apply text-code-string;
+}
+
+

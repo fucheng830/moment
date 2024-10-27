@@ -1,0 +1,96 @@
+.note-card {
+   @apply font-sans text-sm text-card-text leading-relaxed whitespace-pre-line break-words break-all; 
+   @apply space-y-2; 
+   @apply antialiased; }
+.note-card h1, .note-card h2, .note-card h3, .note-card h4, .note-card h5, .note-card h6 { @apply font-semibold ; }
+.note-card h1 { @apply text-base; }
+.note-card h2 { @apply text-base; }
+.note-card h3 { @apply text-sm; }
+.note-card h4 { @apply text-sm; }
+.note-card h5, .note-card h6 { @apply text-sm; }
+.note-card p { @apply text-card-text text-sm leading-relaxed; }
+.note-card a { @apply text-primary hover:underline; }
+.note-card blockquote { @apply border-l-2 border-muted pl-2 italic my-2 text-sm; }
+.note-card code {@apply bg-muted/30 text-card-foreground/60 px-1 py-0.5 rounded text-xs font-mono;}
+.note-card pre {
+  @apply bg-muted/30 px-1 py-0.5 rounded-md m-0 overflow-x-auto text-xs font-mono;
+  @apply scrollbar-thin scrollbar-thumb-muted-foreground/20 scrollbar-track-transparent;
+}
+.note-card pre code {@apply bg-transparent text-card-foreground/80 p-0;}
+.note-card img { @apply w-full h-full object-cover; }
+.note-card hr { @apply my-3 border-t border-border; }
+.note-card table { @apply w-full border-collapse my-2 text-xs; }
+.note-card th, .note-card td { @apply border border-border px-2 py-1; }
+.note-card th { @apply bg-muted font-medium; }
+.note-card ul,ol { @apply my-1 pl-3 list-outside flex flex-col; }
+.note-card li { @apply my-0.5 text-sm ml-2; }
+.note-card ul { @apply list-disc; }
+.note-card ol { @apply list-decimal; }
+.note-card ul ul, .note-card ul ol, .note-card ol ul, .note-card ol ol { @apply my-1 pl-4; }
+
+
+/* 新增 note-reader 样式 */
+.note-reader {
+    @apply font-sans text-base text-card-text leading-relaxed;
+    @apply space-y-3;
+    @apply antialiased;
+    font-family: 'Literata', serif;
+  }
+.note-reader h1, .note-reader h2, .note-reader h3, .note-reader h4, .note-reader h5, .note-reader h6 {
+@apply font-semibold;
+font-family: 'Lato', 'Helvetica Neue', sans-serif;
+}
+.note-reader h1 { @apply text-lg; text-align: center}
+.note-reader h2 { @apply text-lg; text-align: center}
+.note-reader h3 { @apply text-base; }
+.note-reader h4 { @apply text-base; }
+.note-reader h5, .note-reader h6 { @apply text-base; }
+.note-reader p { @apply text-card-text text-base leading-relaxed; }
+.note-reader a { @apply text-primary hover:underline; }
+.note-reader blockquote { @apply border-l-2 border-muted pl-2 italic my-2 text-base; }
+.note-reader code, .note-reader pre {
+    font-family: 'Fira Code', 'Consolas', monospace;
+  }
+.note-reader pre {
+  @apply bg-muted p-2 rounded-md my-2 overflow-x-auto text-sm font-mono;
+  @apply scrollbar-thin scrollbar-thumb-muted-foreground/20 scrollbar-track-transparent;
+}
+.note-reader pre code {@apply bg-transparent text-card-foreground/80 p-0;}
+.note-reader img { @apply w-full h-full object-cover; }
+.note-reader hr { @apply my-4 border-t border-border; }
+.note-reader table { @apply w-full border-collapse my-2 text-sm; }
+.note-reader th, .note-reader td { @apply border border-border px-2 py-1; }
+.note-reader th { @apply bg-muted font-medium; }
+.note-reader ul,ol { @apply my-2 pl-4 list-outside; }
+.note-reader li { @apply my-1 text-base ml-3; }
+.note-reader ul { @apply list-disc; }
+.note-reader ol { @apply list-decimal; }
+.note-reader ul ul, .note-reader ul ol, .note-reader ol ul, .note-reader ol ol { @apply my-1 pl-5; }
+
+
+
+
+.content-stripped {@apply font-semibold text-primary/90;}
+
+/* tag */
+.tags span {@apply mr-2 inline-block text-card-foreground/80 opacity-70 select-none mt-0 pr-0;}
+.tags a:hover span {@apply opacity-100;}
+
+/* 代码块 */
+.code-block {
+@apply bg-muted rounded-md overflow-auto m-0 flex flex-col pb-0;
+}
+    
+/* 代码块头部 */
+.code-header {
+  @apply justify-between items-center pr-1 text-xs font-mono flex text-card-text h-5 border-b opacity-50;
+}
+
+/* Wikilink 样式 */
+.wikilink {
+  @apply text-primary/80 hover:text-primary cursor-pointer select-none;
+  @apply hover:underline decoration-dotted underline-offset-4;
+  /* 可以添加一个小图标来表示这是一个 wiki 链接 */
+  @apply before:opacity-30 after:opacity-30;
+}
+

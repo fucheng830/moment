@@ -1,0 +1,129 @@
+/* 导入 Tailwind CSS 基础样式 */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局基础样式设置 */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+}
+
+
+body {
+  font-family: 'San Francisco','Roboto', 'Open Sans', 'Lato', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+/* 定义全局颜色变量 */
+@layer base {
+  :root {
+    /* 主要颜色 */
+    --background: 48 18% 93%; /* 接近241,239,231的暖色调 */
+    --foreground: 24 10% 30%; /* 稍微调暗一点，增加对比度 */
+    --primary: 25 60% 30%; /* 深棕色 */
+    --primary-foreground: 0 0% 100%; /* 保持不变 */
+    --secondary: 45 20% 88%; /* 稍微调整以配合新背景色 */
+    --secondary-foreground: 24 10% 10%;
+    --text-foreground: 24 10% 10% / 0.7;
+    --text-markdown: 200 50% 40%; /* 一个偏蓝色的暗色调 */
+    --card-text: 24 10% 30%; /* 为卡片文本设置一个暗色 */
+    --card: 48 18% 96%; /* 比背景色稍亮 */
+    --card-foreground: 24 10% 30%;
+    --popover: 48 18% 96%;
+    --popover-foreground: 24 10% 10%;
+    --reference-bg: 45 15% 86%;
+    --reference-text: 24 5% 40%;
+    --muted: 45 15% 86%; 
+    --muted-foreground: 24 5% 40%;
+    --accent: 45 20% 82%; 
+    --accent-foreground: 24 10% 10%;
+    --destructive: 0 85% 60%; /* 保持不变 */
+    --destructive-foreground: 0 0% 100%; /* 保持不变 */
+    --border: 45 15% 75%;
+    --border-light: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 224 60% 58%; /* 保持不变 */
+    --chart-1: 25 60% 30%; 
+    --chart-2: 25 60% 60%; 
+    --chart-3: 25 60% 90%; 
+    --chart-4: 0 0% 40%;    /* 深灰色 */
+    --chart-5: 0 0% 65%;    /* 浅灰色 */
+    --color-warm-paper: 45 80% 96%;
+    --heatmap-cell-border: 0 0% 10%;
+    --success: 142 55% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 75% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 70% 52%;
+    --info-foreground: 0 0% 100%;
+    --highlight: 47 80% 50%;
+    --highlight-foreground: 0 0% 100%;
+    --subtle: 0 0% 96%;
+    --subtle-foreground: 0 0% 45%;
+    --radius: 0.5rem;
+  }
+
+
+  /* 暗色主题颜色设置 */
+  .dark {
+    /* 主要颜色 */
+    --background: 48 18% 93%; /* 接近241,239,231的暖色调 */
+    --foreground: 24 10% 30%; /* 稍微调暗一点，增加对比度 */
+    --primary: 25 60% 30%; /* 深棕色 */
+    --primary-foreground: 0 0% 100%; /* 保持不变 */
+    --secondary: 45 20% 88%; /* 稍微调整以配合新背景色 */
+    --secondary-foreground: 24 10% 10%;
+    --text-foreground: 24 10% 10% / 0.7;
+    --text-markdown: 200 50% 40%; /* 一个偏蓝色的暗色调 */
+    --card-text: 24 10% 30%; /* 为卡片文本设置一个暗色 */
+    --card: 48 18% 96%; /* 比背景色稍亮 */
+    --card-foreground: 24 10% 30%;
+    --popover: 48 18% 96%;
+    --popover-foreground: 24 10% 10%;
+    --reference-bg: 45 15% 86%;
+    --reference-text: 24 5% 40%;
+    --muted: 45 15% 86%; 
+    --muted-foreground: 24 5% 40%;
+    --accent: 45 20% 82%; 
+    --accent-foreground: 24 10% 10%;
+    --destructive: 0 85% 60%; /* 保持不变 */
+    --destructive-foreground: 0 0% 100%; /* 保持不变 */
+    --border: 45 15% 75%;
+    --border-light: 45 15% 85%;
+    --input: 45 15% 85%;
+    --ring: 224 60% 58%; /* 保持不变 */
+    --chart-1: 25 60% 30%; 
+    --chart-2: 25 60% 60%; 
+    --chart-3: 25 60% 90%; 
+    --chart-4: 0 0% 40%;    /* 深灰色 */
+    --chart-5: 0 0% 65%;    /* 浅灰色 */
+    --color-warm-paper: 45 80% 96%;
+    --heatmap-cell-border: 0 0% 10%;
+    --success: 142 55% 48%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 75% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 70% 52%;
+    --info-foreground: 0 0% 100%;
+    --highlight: 47 80% 50%;
+    --highlight-foreground: 0 0% 100%;
+    --subtle: 0 0% 96%;
+    --subtle-foreground: 0 0% 45%;
+    --radius: 0.5rem;
+  }
+}
+
